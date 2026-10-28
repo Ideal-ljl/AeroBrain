@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OpenFlyV2: An Onboard Vision-Language-Action Model for Aerial Perception and Navigation</title>
+  <meta name="description" content="OpenFlyV2 is a 1B-parameter vision-language-action model that understands aerial scenes and flies a real drone fully onboard, transferring zero-shot from simulation.">
+  <meta property="og:title" content="OpenFlyV2: An onboard vision-language-action model for aerial perception and navigation">
+  <meta property="og:description" content="One 1B-parameter model for aerial understanding and closed-loop flight, running fully onboard a Jetson Orin NX.">
+  <meta property="og:image" content="assets/images/flight_0003_poster.jpg">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23000'/%3E%3Ccircle cx='16' cy='16' r='8' fill='none' stroke='%23fbbf24' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/css/style.css?v=4">
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"></span>OpenFlyV2</a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#flight">Real-world flight</a>
+      <a href="#abstract">Abstract</a>
+      <a href="#overview">Overview</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#method">Method</a>
+      <a href="#results">Results</a>
+      <a href="#dataset">Dataset</a>
+      <a href="#bibtex">BibTeX</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- 1. Title block -->
+  <section class="hero" id="top">
+    <div class="wrap">
+      <p class="eyebrow">Onboard vision-language-action model for aerial robots</p>
+      <h1 class="title"><span class="accent">OpenFlyV2</span>: An onboard <span class="nowrap">vision-language-action</span> model for aerial perception and navigation</h1>
+
+      <p class="authors">
+        <span>Junli&nbsp;Liu<sup>1,2</sup></span>
+        <span>Zhongrui&nbsp;You<sup>1,3</sup></span>
+        <span>Chenhui&nbsp;Li<sup>1</sup></span>
+        <span>Zhen&nbsp;Li<sup>1,4</sup></span>
+        <span>Dong&nbsp;Wang<sup>1</sup></span>
+        <span>Xuelong&nbsp;Li<sup>5</sup></span>
+        <span>Zhigang&nbsp;Wang<sup>1</sup></span>
+        <span>Bin&nbsp;Zhao<sup>1,2</sup></span>
+      </p>
+      <p class="affils">
+        <span><sup>1</sup>Shanghai Artificial Intelligence Laboratory</span>
+        <span><sup>2</sup>Northwestern Polytechnical University</span>
+        <span><sup>3</sup>Beihang University</span>
+        <span><sup>4</sup>Shanghai Jiao Tong University</span>
+        <span><sup>5</sup>Institute of Artificial Intelligence of China Telecom (TeleAI)</span>
+      </p>
+
+      <div class="links">
+        <span class="btn is-disabled" title="Coming soon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6z M14 2v6h6" /></svg>Paper<em>soon</em></span>
+        <span class="btn is-disabled" title="Coming soon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4z M8 9h8 M8 13h8 M8 17h5" /></svg>arXiv<em>soon</em></span>
+        <a class="btn" href="https://github.com/Ideal-ljl/AeroBrain" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7l-5 5 5 5 M16 7l5 5-5 5" /></svg>Code</a>
+        <a class="btn is-primary" href="#flight"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4l13 8-13 8z" /></svg>Video</a>
+        <a class="btn" href="https://huggingface.co/datasets/Ideallll/AeroBrain" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6c0-2 16-2 16 0v12c0 2-16 2-16 0z M4 6c0 2 16 2 16 0 M4 12c0 2 16 2 16 0" /></svg>Dataset</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Real-world flight video -->
+  <section class="section" id="flight">
+    <div class="wrap wide">
+      <div class="section-head">
+        <h2>Zero-shot real-world flight</h2>
+        <p class="lede">Every computation runs on the aircraft: a DJI M30T carrying an NVIDIA Jetson Orin NX. The policy was trained only in simulation and had never seen real flight data.</p>
+      </div>
+
+      <div class="carousel" role="region" aria-roledescription="carousel" aria-label="Real-world flights">
+        <div class="track">
+          <figure class="player slide" role="group" aria-roledescription="slide" aria-label="Flight 1 of 2">
+            <video src="assets/videos/openflyv2_flight_0003.mp4" poster="assets/images/flight_0003_poster.jpg"
+                   controls muted playsinline preload="metadata"></video>
+            <div class="instr-text">
+              <span>Instruction</span>
+              <p>Head forward toward the U-shaped white building with red brick ends and a curved glass front, where cars are parked nearby, it’s centered at the top of your view.</p>
+              <p>Then, gently turn right and continue straight ahead to reach the white building adorned with rooftop tanks, satellite dishes, nestled beside lush green trees</p>
+            </div>
+            <figcaption>
+              <span class="chip"><i class="dot"></i>Real time (1×)</span>
+              Onboard camera, with a chase drone's view in the inset; the box marks the OpenFlyV2 drone. The on-screen text is the exact instruction given to the model.
+            </figcaption>
+          </figure>
+
+          <figure class="player slide" role="group" aria-roledescription="slide" aria-label="Flight 2 of 2">
+            <video src="assets/videos/openflyv2_flight_0007.mp4" poster="assets/images/flight_0007_poster.jpg"
+                   controls muted playsinline preload="none"></video>
+            <div class="instr-text">
+              <span>Instruction</span>
+              <p>Move forward toward the white angular building with a dark flat roof and tapered towers.</p>
+              <p>Then turn left and continue straight toward the large white curved building with raised rectangular sections beside the river.</p>
+            </div>
+            <figcaption>
+              <span class="chip"><i class="dot"></i>Real time (1×)</span>
+              Onboard camera. The on-screen text is the exact instruction given to the model.
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="carousel-nav">
+          <button class="cbtn" type="button" data-dir="-1" aria-label="Previous flight"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" /></svg></button>
+          <div class="dots" role="group" aria-label="Choose a flight">
+            <button type="button" aria-label="Flight 1"></button>
+            <button type="button" aria-label="Flight 2"></button>
+          </div>
+          <span class="count" aria-live="polite">1 / 2</span>
+          <button class="cbtn" type="button" data-dir="1" aria-label="Next flight"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg></button>
+        </div>
+      </div>
+
+      <ul class="facts">
+        <li><strong>1B</strong><span>parameters, one checkpoint</span></li>
+        <li><strong>10&nbsp;Hz</strong><span>12-waypoint action chunks</span></li>
+        <li><strong>Orin&nbsp;NX</strong><span>fully onboard inference</span></li>
+        <li><strong>48%</strong><span>success over 100 real-world trials</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 3. Abstract -->
+  <section class="section" id="abstract">
+    <div class="wrap">
+      <h2>Abstract</h2>
+      <p class="abstract">Human cognition flexibly draws on a shared perceptual foundation to understand environments, attend to referenced entities, reason about spatial relationships, and act. Endowing aerial robots with an analogous functional organization remains challenging, as existing systems are often specialized for individual capabilities, dependent on offboard computation, or unable to sustain closed-loop operation on resource-constrained platforms. We present OpenFlyV2, a unified onboard vision-language-action architecture that uses a shared vision-language representation to support semantic understanding, language-grounded perception, spatial reasoning, and continuous aerial control within a single model. A compact action expert converts the shared multimodal context into short-horizon flight waypoints, while motion-aware temporal memory and action priors reduce the computational cost of closed-loop execution. We construct AeroBrain, a simulation-based dataset comprising approximately 70,000 navigation trajectories and 60,000 vision-language instruction–response pairs. OpenFlyV2 generates action chunks, each comprising 12 waypoints, entirely onboard at 10 Hz using an NVIDIA Jetson Orin NX. It transfers zero-shot from simulation to physical quadrotor flight, achieving a 48% navigation success rate across four real-world environments without real-world aerial training data. Extensive results demonstrate that broad vision-language competence and continuous closed-loop flight can coexist within a single model on a resource-constrained aerial platform.</p>
+    </div>
+  </section>
+
+  <!-- 4–8. Planned sections (structure only for now) -->
+  <section class="section" id="overview">
+    <div class="wrap">
+      <h2>Overview</h2>
+      <div class="planned">
+        <span class="planned-tag">Planned</span>
+        <p>Fig. 1 overview: one shared vision-language backbone, motion-aware memory, and an action expert, with the four capabilities and onboard deployment at a glance.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="capabilities">
+    <div class="wrap">
+      <h2>Aerial understanding</h2>
+      <div class="planned">
+        <span class="planned-tag">Planned</span>
+        <p>Interactive examples, one tab per task: color, description, distance estimation, spatial reasoning, and visual grounding with a predicted-vs-reference box toggle.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="method">
+    <div class="wrap">
+      <h2>Method</h2>
+      <div class="planned">
+        <span class="planned-tag">Planned</span>
+        <p>Architecture diagram with short explanations of Motion-Adaptive Memory (446 → 218 tokens) and the Motion-Structured Prior for single-step action generation.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="results">
+    <div class="wrap">
+      <h2>Results</h2>
+      <div class="planned">
+        <span class="planned-tag">Planned</span>
+        <p>Vision-language comparison with GPT-5.5, Gemini 3 Flash and Qwen3.5-9B; simulated navigation against four baselines on seen and unseen environments; ablations.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="dataset">
+    <div class="wrap">
+      <h2>AeroBrain dataset</h2>
+      <div class="planned">
+        <span class="planned-tag">Planned</span>
+        <p>Gallery of the 13 environments (AirSim, Unreal Engine and 3D Gaussian Splatting reconstructions), with 72,352 trajectories and 60,006 VQA pairs over 254.81&nbsp;km². The two GS Ruins environments are not in the public release for privacy reasons.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. BibTeX -->
+  <section class="section" id="bibtex">
+    <div class="wrap">
+      <div class="bib-head">
+        <h2>BibTeX</h2>
+        <button class="copy" type="button" data-copy="#bib">Copy</button>
+      </div>
+<pre class="bib"><code id="bib">@misc{liu2026openflyv2,
+  title  = {OpenFlyV2: An Onboard Vision-Language-Action Model for Aerial Perception and Navigation},
+  author = {Liu, Junli and You, Zhongrui and Li, Chenhui and Li, Zhen and Wang, Dong and Li, Xuelong and Wang, Zhigang and Zhao, Bin},
+  year   = {2026}
+}</code></pre>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p>© 2026 the OpenFlyV2 authors.</p>
+  </div>
+</footer>
+
+<script src="assets/js/main.js?v=4"></script>
+</body>
+</html>
