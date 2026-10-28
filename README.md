@@ -7,7 +7,7 @@
 
 OpenFlyV2 unifies aerial perception and navigation in a single onboard vision-language-action model, supporting semantic understanding, language-grounded perception, spatial reasoning, and continuous aerial control.
 
-[![OpenFlyV2 overview](assets/figure1.svg)](assets/figure1.svg)
+[![OpenFlyV2 overview](assets/figure1.webp)](assets/figure1.webp)
 
 ## Abstract
 
