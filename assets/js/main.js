@@ -61,16 +61,19 @@ if (carousel) {
   sync();
 }
 
-// Seen / unseen switch for the simulated navigation results.
+// Seen / unseen switch for the simulated navigation charts: bars and values animate to the other split.
 const seg = document.querySelector('.seg');
 if (seg) {
   const buttons = [...seg.querySelectorAll('button')];
-  const results = document.getElementById('nav-results');
+  const cols = [...document.querySelectorAll('#nav-results .col[data-seen]')];
   const select = b => {
     const split = b.dataset.split;
     buttons.forEach(x => x.setAttribute('aria-checked', x === b));
-    results.querySelectorAll('.bar[data-seen]').forEach(bar => bar.style.setProperty('--w', `${bar.dataset[split]}%`));
-    results.querySelectorAll('.num[data-seen]').forEach(n => { n.textContent = n.dataset[split]; });
+    cols.forEach(c => {
+      c.style.setProperty('--h', `${c.dataset[`${split}H`]}%`);
+      c.querySelector('.val').textContent = c.dataset[split];
+      c.setAttribute('aria-label', `${c.dataset.model}, ${split}: ${c.dataset[split]}`);
+    });
   };
   buttons.forEach((b, i) => {
     b.addEventListener('click', () => select(b));
@@ -81,3 +84,39 @@ if (seg) {
     });
   });
 }
+
+// Dataset donuts: hovering, focusing or tapping a slice (or its legend entry) pops the slice out,
+// dims the rest and shows its share in the centre.
+document.querySelectorAll('.donut-card').forEach(card => {
+  const svg = card.querySelector('.donut');
+  const slices = [...svg.querySelectorAll('.slice')];
+  const keys = [...card.querySelectorAll('.legend button')];
+  const center = card.querySelector('.donut-center');
+  const text = (tag, s) => { const el = document.createElement(tag); el.textContent = s; return el; };
+  let pinned = -1;
+
+  const show = i => {
+    svg.classList.toggle('has-active', i >= 0);
+    slices.forEach((s, k) => s.classList.toggle('is-active', k === i));
+    keys.forEach((b, k) => b.classList.toggle('is-active', k === i));
+    if (i < 0) {
+      center.replaceChildren(text('strong', center.dataset.value), text('span', center.dataset.label));
+    } else {
+      const s = slices[i];
+      center.replaceChildren(text('strong', s.dataset.share), text('span', s.dataset.name), text('em', s.dataset.detail));
+    }
+  };
+  const hover = i => e => { if (e.pointerType === 'mouse') show(i); };
+  const leave = e => { if (e.pointerType === 'mouse') show(pinned); };
+
+  [slices, keys].forEach(list => list.forEach((el, i) => {
+    el.addEventListener('pointerenter', hover(i));
+    el.addEventListener('pointerleave', leave);
+    el.addEventListener('focus', () => show(i));
+    el.addEventListener('blur', () => show(pinned));
+    el.addEventListener('click', () => { pinned = pinned === i ? -1 : i; show(pinned); });
+  }));
+  document.addEventListener('pointerdown', e => {
+    if (pinned >= 0 && !card.contains(e.target)) { pinned = -1; show(-1); }
+  });
+});
