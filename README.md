@@ -25,6 +25,8 @@ The **AeroBrain** dataset is available on Hugging Face:
 
 **[🤗 Ideallll/AeroBrain](https://huggingface.co/datasets/Ideallll/AeroBrain)**
 
+> **Data availability:** The dataset described in the paper spans 13 environments. Two GS Ruins environments are currently excluded from the public release due to privacy concerns.
+
 ## Release status
 
 We are preparing the OpenFlyV2 open-source release. Code, model checkpoints, and usage instructions are coming soon.
