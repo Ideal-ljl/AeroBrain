@@ -61,17 +61,23 @@ if (carousel) {
   sync();
 }
 
-// Copy buttons.
-document.querySelectorAll('[data-copy]').forEach(btn => {
-  btn.addEventListener('click', async () => {
-    const text = document.querySelector(btn.dataset.copy).textContent;
-    try {
-      await navigator.clipboard.writeText(text);
-      btn.textContent = 'Copied';
-    } catch {
-      btn.textContent = 'Press ⌘C';
-      getSelection().selectAllChildren(document.querySelector(btn.dataset.copy));
-    }
-    setTimeout(() => { btn.textContent = 'Copy'; }, 1600);
+// Seen / unseen switch for the simulated navigation results.
+const seg = document.querySelector('.seg');
+if (seg) {
+  const buttons = [...seg.querySelectorAll('button')];
+  const results = document.getElementById('nav-results');
+  const select = b => {
+    const split = b.dataset.split;
+    buttons.forEach(x => x.setAttribute('aria-checked', x === b));
+    results.querySelectorAll('.bar[data-seen]').forEach(bar => bar.style.setProperty('--w', `${bar.dataset[split]}%`));
+    results.querySelectorAll('.num[data-seen]').forEach(n => { n.textContent = n.dataset[split]; });
+  };
+  buttons.forEach((b, i) => {
+    b.addEventListener('click', () => select(b));
+    b.addEventListener('keydown', e => {
+      if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+      const t = buttons[(i + (e.key === 'ArrowRight' ? 1 : -1) + buttons.length) % buttons.length];
+      t.focus(); select(t);
+    });
   });
-});
+}

@@ -10,7 +10,7 @@
   <meta property="og:image" content="assets/images/flight_0003_poster.jpg">
   <meta name="theme-color" content="#000000">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23000'/%3E%3Ccircle cx='16' cy='16' r='8' fill='none' stroke='%23fbbf24' stroke-width='3'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="assets/css/style.css?v=4">
+  <link rel="stylesheet" href="assets/css/style.css?v=8">
 </head>
 <body>
 
@@ -20,12 +20,9 @@
     <nav class="nav-links" aria-label="Sections">
       <a href="#flight">Real-world flight</a>
       <a href="#abstract">Abstract</a>
-      <a href="#overview">Overview</a>
-      <a href="#capabilities">Capabilities</a>
-      <a href="#method">Method</a>
-      <a href="#results">Results</a>
+      <a href="#environments">Environments</a>
       <a href="#dataset">Dataset</a>
-      <a href="#bibtex">BibTeX</a>
+      <a href="#results">Results</a>
     </nav>
   </div>
 </header>
@@ -57,11 +54,9 @@
       </p>
 
       <div class="links">
-        <span class="btn is-disabled" title="Coming soon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6z M14 2v6h6" /></svg>Paper<em>soon</em></span>
         <span class="btn is-disabled" title="Coming soon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4z M8 9h8 M8 13h8 M8 17h5" /></svg>arXiv<em>soon</em></span>
         <a class="btn" href="https://github.com/Ideal-ljl/AeroBrain" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7l-5 5 5 5 M16 7l5 5-5 5" /></svg>Code</a>
-        <a class="btn is-primary" href="#flight"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4l13 8-13 8z" /></svg>Video</a>
-        <a class="btn" href="https://huggingface.co/datasets/Ideallll/AeroBrain" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6c0-2 16-2 16 0v12c0 2-16 2-16 0z M4 6c0 2 16 2 16 0 M4 12c0 2 16 2 16 0" /></svg>Dataset</a>
+        <a class="btn is-primary" href="https://huggingface.co/datasets/Ideallll/AeroBrain" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6c0-2 16-2 16 0v12c0 2-16 2-16 0z M4 6c0 2 16 2 16 0 M4 12c0 2 16 2 16 0" /></svg>Dataset</a>
       </div>
     </div>
   </section>
@@ -133,69 +128,251 @@
     </div>
   </section>
 
-  <!-- 4–8. Planned sections (structure only for now) -->
-  <section class="section" id="overview">
-    <div class="wrap">
-      <h2>Overview</h2>
-      <div class="planned">
-        <span class="planned-tag">Planned</span>
-        <p>Fig. 1 overview: one shared vision-language backbone, motion-aware memory, and an action expert, with the four capabilities and onboard deployment at a glance.</p>
+  <!-- 4. Environments -->
+  <section class="section" id="environments">
+    <div class="wrap wide">
+      <div class="section-head">
+        <h2>13 simulation environments</h2>
+        <p class="lede">Four AirSim maps, two Unreal Engine cities and seven 3D Gaussian Splatting reconstructions of real campuses and post-disaster ruins, covering 254.81&nbsp;km². The same scenes supply both the navigation and the question-answering data.</p>
+        <p class="legend-note"><span class="tag">Held out</span> Excluded from all training and used to test generalization to unseen environments.</p>
+      </div>
+      <div class="env-group">
+        <h3>AirSim <span>4 environments · Unreal Engine maps</span></h3>
+        <ul class="env-grid">
+          <li class="env-card"><img src="assets/images/env/airsim-16.jpg" alt="AirSim 16 environment" width="720" height="391" loading="lazy"><div class="env-meta"><span>AirSim 16</span><span class="tag">Held out</span></div></li>
+          <li class="env-card"><img src="assets/images/env/airsim-18.jpg" alt="AirSim 18 environment" width="720" height="391" loading="lazy"><div class="env-meta"><span>AirSim 18</span></div></li>
+          <li class="env-card"><img src="assets/images/env/airsim-26.jpg" alt="AirSim 26 environment" width="720" height="391" loading="lazy"><div class="env-meta"><span>AirSim 26</span></div></li>
+          <li class="env-card"><img src="assets/images/env/airsim-sh.jpg" alt="AirSim SH environment" width="720" height="391" loading="lazy"><div class="env-meta"><span>AirSim SH</span></div></li>
+        </ul>
+      </div>
+      <div class="env-group">
+        <h3>Unreal Engine cities <span>2 environments · engine-authored city scenes</span></h3>
+        <ul class="env-grid">
+          <li class="env-card"><img src="assets/images/env/ue-big-city.jpg" alt="UE Big City environment" width="720" height="391" loading="lazy"><div class="env-meta"><span>UE Big City</span><span class="tag">Held out</span></div></li>
+          <li class="env-card"><img src="assets/images/env/ue-small-city.jpg" alt="UE Small City environment" width="720" height="391" loading="lazy"><div class="env-meta"><span>UE Small City</span></div></li>
+        </ul>
+      </div>
+      <div class="env-group">
+        <h3>3D Gaussian Splatting <span>7 environments · reconstructions of real campuses and post-disaster ruins</span></h3>
+        <ul class="env-grid">
+          <li class="env-card"><img src="assets/images/env/gs-ecust.jpg" alt="GS ECUST environment" width="720" height="391" loading="lazy"><div class="env-meta"><span>GS ECUST</span></div></li>
+          <li class="env-card"><img src="assets/images/env/gs-nwpu-01.jpg" alt="GS NWPU 01 environment" width="720" height="391" loading="lazy"><div class="env-meta"><span>GS NWPU 01</span><span class="tag">Held out</span></div></li>
+          <li class="env-card"><img src="assets/images/env/gs-nwpu-02.jpg" alt="GS NWPU 02 environment" width="720" height="391" loading="lazy"><div class="env-meta"><span>GS NWPU 02</span></div></li>
+          <li class="env-card"><img src="assets/images/env/gs-sjtu-01.jpg" alt="GS SJTU 01 environment" width="720" height="391" loading="lazy"><div class="env-meta"><span>GS SJTU 01</span></div></li>
+          <li class="env-card"><img src="assets/images/env/gs-sjtu-02.jpg" alt="GS SJTU 02 environment" width="720" height="391" loading="lazy"><div class="env-meta"><span>GS SJTU 02</span></div></li>
+          <li class="env-card"><img src="assets/images/env/gs-ruins-01.jpg" alt="GS Ruins 01 environment" width="720" height="391" loading="lazy"><div class="env-meta"><span>GS Ruins 01</span></div></li>
+          <li class="env-card"><img src="assets/images/env/gs-ruins-02.jpg" alt="GS Ruins 02 environment" width="720" height="391" loading="lazy"><div class="env-meta"><span>GS Ruins 02</span><span class="tag">Held out</span></div></li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <section class="section" id="capabilities">
-    <div class="wrap">
-      <h2>Aerial understanding</h2>
-      <div class="planned">
-        <span class="planned-tag">Planned</span>
-        <p>Interactive examples, one tab per task: color, description, distance estimation, spatial reasoning, and visual grounding with a predicted-vs-reference box toggle.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="method">
-    <div class="wrap">
-      <h2>Method</h2>
-      <div class="planned">
-        <span class="planned-tag">Planned</span>
-        <p>Architecture diagram with short explanations of Motion-Adaptive Memory (446 → 218 tokens) and the Motion-Structured Prior for single-step action generation.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="results">
-    <div class="wrap">
-      <h2>Results</h2>
-      <div class="planned">
-        <span class="planned-tag">Planned</span>
-        <p>Vision-language comparison with GPT-5.5, Gemini 3 Flash and Qwen3.5-9B; simulated navigation against four baselines on seen and unseen environments; ablations.</p>
-      </div>
-    </div>
-  </section>
-
+  <!-- 5. Dataset -->
   <section class="section" id="dataset">
-    <div class="wrap">
-      <h2>AeroBrain dataset</h2>
-      <div class="planned">
-        <span class="planned-tag">Planned</span>
-        <p>Gallery of the 13 environments (AirSim, Unreal Engine and 3D Gaussian Splatting reconstructions), with 72,352 trajectories and 60,006 VQA pairs over 254.81&nbsp;km². The two GS Ruins environments are not in the public release for privacy reasons.</p>
+    <div class="wrap wide">
+      <div class="section-head">
+        <h2>AeroBrain dataset</h2>
+        <p class="lede">72,352 language-conditioned navigation trajectories and 60,006 visual question–answer pairs, rendered in the 13 environments. Instructions and answers were generated automatically and then checked by 200 human annotators; only samples that passed verification are included.</p>
+        <div class="links"><a class="btn is-primary" href="https://huggingface.co/datasets/Ideallll/AeroBrain" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6c0-2 16-2 16 0v12c0 2-16 2-16 0z M4 6c0 2 16 2 16 0 M4 12c0 2 16 2 16 0" /></svg>Download on Hugging Face</a></div>
       </div>
+
+      <div class="ds-grid">
+        <div class="card">
+          <div class="card-head"><h3>Navigation trajectories</h3><p><strong>72,352</strong> trajectories by environment</p></div>
+          <table class="bars">
+            <caption class="sr-only">Navigation trajectories per environment</caption>
+            <thead class="sr-only"><tr><th>Environment</th><th>Bar</th><th>Trajectories</th><th>Share</th></tr></thead>
+            <tbody>
+              <tr class="group"><th colspan="4" scope="rowgroup">AirSim</th></tr>
+              <tr><th scope="row">AirSim 16</th><td class="bar-cell"><span class="bar" style="--w:42.49%"></span></td><td class="num">6,492</td><td class="share">8.97%</td></tr>
+              <tr><th scope="row">AirSim 18</th><td class="bar-cell"><span class="bar" style="--w:65.70%"></span></td><td class="num">10,038</td><td class="share">13.87%</td></tr>
+              <tr><th scope="row">AirSim 26</th><td class="bar-cell"><span class="bar" style="--w:100.00%"></span></td><td class="num">15,278</td><td class="share">21.12%</td></tr>
+              <tr><th scope="row">AirSim SH</th><td class="bar-cell"><span class="bar" style="--w:47.74%"></span></td><td class="num">7,294</td><td class="share">10.08%</td></tr>
+              <tr class="group"><th colspan="4" scope="rowgroup">Unreal Engine cities</th></tr>
+              <tr><th scope="row">UE Big City</th><td class="bar-cell"><span class="bar" style="--w:37.86%"></span></td><td class="num">5,785</td><td class="share">8.00%</td></tr>
+              <tr><th scope="row">UE Small City</th><td class="bar-cell"><span class="bar" style="--w:32.10%"></span></td><td class="num">4,904</td><td class="share">6.78%</td></tr>
+              <tr class="group"><th colspan="4" scope="rowgroup">3D Gaussian Splatting</th></tr>
+              <tr><th scope="row">GS ECUST</th><td class="bar-cell"><span class="bar" style="--w:23.01%"></span></td><td class="num">3,515</td><td class="share">4.86%</td></tr>
+              <tr><th scope="row">GS NWPU 01</th><td class="bar-cell"><span class="bar" style="--w:27.98%"></span></td><td class="num">4,275</td><td class="share">5.91%</td></tr>
+              <tr><th scope="row">GS NWPU 02</th><td class="bar-cell"><span class="bar" style="--w:29.40%"></span></td><td class="num">4,492</td><td class="share">6.21%</td></tr>
+              <tr><th scope="row">GS SJTU 01</th><td class="bar-cell"><span class="bar" style="--w:29.57%"></span></td><td class="num">4,517</td><td class="share">6.24%</td></tr>
+              <tr><th scope="row">GS SJTU 02</th><td class="bar-cell"><span class="bar" style="--w:30.71%"></span></td><td class="num">4,692</td><td class="share">6.48%</td></tr>
+              <tr><th scope="row">GS Ruins 01</th><td class="bar-cell"><span class="bar" style="--w:3.86%"></span></td><td class="num">589</td><td class="share">0.81%</td></tr>
+              <tr><th scope="row">GS Ruins 02</th><td class="bar-cell"><span class="bar" style="--w:3.15%"></span></td><td class="num">481</td><td class="share">0.66%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card">
+          <div class="card-head"><h3>Visual question answering</h3><p><strong>60,006</strong> question–answer pairs by task</p></div>
+          <table class="bars">
+            <caption class="sr-only">VQA pairs per task</caption>
+            <thead class="sr-only"><tr><th>Task</th><th>Bar</th><th>Pairs</th><th>Share</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Color recognition</th><td class="bar-cell"><span class="bar" style="--w:21.45%"></span></td><td class="num">4,285</td><td class="share">7.14%</td></tr>
+              <tr><th scope="row">Object description</th><td class="bar-cell"><span class="bar" style="--w:38.30%"></span></td><td class="num">7,650</td><td class="share">12.75%</td></tr>
+              <tr><th scope="row">Distance estimation</th><td class="bar-cell"><span class="bar" style="--w:47.51%"></span></td><td class="num">9,490</td><td class="share">15.82%</td></tr>
+              <tr><th scope="row">Spatial relationship</th><td class="bar-cell"><span class="bar" style="--w:100.00%"></span></td><td class="num">19,975</td><td class="share">33.29%</td></tr>
+              <tr><th scope="row">Visual grounding</th><td class="bar-cell"><span class="bar" style="--w:93.15%"></span></td><td class="num">18,606</td><td class="share">31.01%</td></tr>
+            </tbody>
+          </table>
+          <p class="card-note">Spatial questions compare two objects by image position, distance from the camera, overlap or containment, and size. Grounding answers are boxes in image coordinates.</p>
+        </div>
+      </div>
+      <p class="note">The public release on Hugging Face leaves out the two GS Ruins environments for privacy reasons.</p>
     </div>
   </section>
 
-  <!-- 9. BibTeX -->
-  <section class="section" id="bibtex">
-    <div class="wrap">
-      <div class="bib-head">
-        <h2>BibTeX</h2>
-        <button class="copy" type="button" data-copy="#bib">Copy</button>
+  <!-- 6. Results -->
+  <section class="section" id="results">
+    <div class="wrap wide">
+      <div class="section-head">
+        <h2>Results</h2>
+        <p class="lede">One 1B-parameter checkpoint, compared with general-purpose vision-language models on aerial understanding and with vision-language navigation methods in simulation, then flown on a real drone.</p>
       </div>
-<pre class="bib"><code id="bib">@misc{liu2026openflyv2,
-  title  = {OpenFlyV2: An Onboard Vision-Language-Action Model for Aerial Perception and Navigation},
-  author = {Liu, Junli and You, Zhongrui and Li, Chenhui and Li, Zhen and Wang, Dong and Li, Xuelong and Wang, Zhigang and Zhao, Bin},
-  year   = {2026}
-}</code></pre>
+
+      <div class="subsection">
+        <h3>Aerial understanding</h3>
+        <p class="sub-lede">OpenFlyV2, with a 0.8B vision-language backbone, against three general-purpose models. 300 test examples per task and 1,000 for visual grounding.</p>
+        <div class="metric-grid five">
+          <div class="card metric">
+            <div class="card-head"><h4>Color recognition</h4><p>accuracy, % ↑</p></div>
+            <table class="bars compact">
+              <caption class="sr-only">Color recognition (accuracy, % ↑)</caption>
+              <tbody>
+                <tr><th scope="row">Qwen3.5-9B</th><td class="bar-cell"><span class="bar" style="--w:74.00%"></span></td><td class="num">74</td></tr>
+                <tr><th scope="row">Gemini 3 Flash</th><td class="bar-cell"><span class="bar" style="--w:70.00%"></span></td><td class="num">70</td></tr>
+                <tr><th scope="row">GPT-5.5</th><td class="bar-cell"><span class="bar" style="--w:85.00%"></span></td><td class="num">85</td></tr>
+                <tr class="is-ours"><th scope="row">OpenFlyV2</th><td class="bar-cell"><span class="bar" style="--w:81.00%"></span></td><td class="num">81</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card metric">
+            <div class="card-head"><h4>Object description</h4><p>score out of 10 ↑</p></div>
+            <table class="bars compact">
+              <caption class="sr-only">Object description (score out of 10 ↑)</caption>
+              <tbody>
+                <tr><th scope="row">Qwen3.5-9B</th><td class="bar-cell"><span class="bar" style="--w:62.10%"></span></td><td class="num">6.21</td></tr>
+                <tr><th scope="row">Gemini 3 Flash</th><td class="bar-cell"><span class="bar" style="--w:62.00%"></span></td><td class="num">6.20</td></tr>
+                <tr><th scope="row">GPT-5.5</th><td class="bar-cell"><span class="bar" style="--w:63.60%"></span></td><td class="num">6.36</td></tr>
+                <tr class="is-ours"><th scope="row">OpenFlyV2</th><td class="bar-cell"><span class="bar" style="--w:63.80%"></span></td><td class="num">6.38</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card metric">
+            <div class="card-head"><h4>Visual grounding</h4><p>Acc@0.5, % ↑</p></div>
+            <table class="bars compact">
+              <caption class="sr-only">Visual grounding (Acc@0.5, % ↑)</caption>
+              <tbody>
+                <tr><th scope="row">Qwen3.5-9B</th><td class="bar-cell"><span class="bar" style="--w:59.10%"></span></td><td class="num">59.1</td></tr>
+                <tr><th scope="row">Gemini 3 Flash</th><td class="bar-cell"><span class="bar" style="--w:61.60%"></span></td><td class="num">61.6</td></tr>
+                <tr><th scope="row">GPT-5.5</th><td class="bar-cell"><span class="bar" style="--w:61.60%"></span></td><td class="num">61.6</td></tr>
+                <tr class="is-ours"><th scope="row">OpenFlyV2</th><td class="bar-cell"><span class="bar" style="--w:67.10%"></span></td><td class="num">67.1</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card metric">
+            <div class="card-head"><h4>Distance estimation</h4><p>relative error ↓</p></div>
+            <table class="bars compact">
+              <caption class="sr-only">Distance estimation (relative error ↓)</caption>
+              <tbody>
+                <tr><th scope="row">Qwen3.5-9B</th><td class="bar-cell"><span class="bar" style="--w:41.00%"></span></td><td class="num">0.41</td></tr>
+                <tr><th scope="row">Gemini 3 Flash</th><td class="bar-cell"><span class="bar" style="--w:79.00%"></span></td><td class="num">0.79</td></tr>
+                <tr><th scope="row">GPT-5.5</th><td class="bar-cell"><span class="bar" style="--w:34.00%"></span></td><td class="num">0.34</td></tr>
+                <tr class="is-ours"><th scope="row">OpenFlyV2</th><td class="bar-cell"><span class="bar" style="--w:27.00%"></span></td><td class="num">0.27</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card metric">
+            <div class="card-head"><h4>Spatial reasoning</h4><p>score, % ↑</p></div>
+            <table class="bars compact">
+              <caption class="sr-only">Spatial reasoning (score, % ↑)</caption>
+              <tbody>
+                <tr><th scope="row">Qwen3.5-9B</th><td class="bar-cell"><span class="bar" style="--w:75.33%"></span></td><td class="num">75.33</td></tr>
+                <tr><th scope="row">Gemini 3 Flash</th><td class="bar-cell"><span class="bar" style="--w:77.00%"></span></td><td class="num">77.00</td></tr>
+                <tr><th scope="row">GPT-5.5</th><td class="bar-cell"><span class="bar" style="--w:83.33%"></span></td><td class="num">83.33</td></tr>
+                <tr class="is-ours"><th scope="row">OpenFlyV2</th><td class="bar-cell"><span class="bar" style="--w:80.67%"></span></td><td class="num">80.67</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="sub-head">
+          <div>
+            <h3>Navigation in simulation</h3>
+            <p class="sub-lede">Four open-source baselines trained on the same navigation data, evaluated on 800 episodes in seen and 300 in unseen environments. Success requires an explicit stop within 25&nbsp;m of the goal.</p>
+          </div>
+          <div class="seg" role="radiogroup" aria-label="Evaluation split">
+            <button type="button" role="radio" aria-checked="true" data-split="seen">Seen <span>800 episodes</span></button>
+            <button type="button" role="radio" aria-checked="false" data-split="unseen">Unseen <span>300 episodes</span></button>
+          </div>
+        </div>
+        <div class="metric-grid four" id="nav-results">
+          <div class="card metric">
+            <div class="card-head"><h4>Success rate (SR)</h4><p>% ↑</p></div>
+            <table class="bars compact">
+              <caption class="sr-only">Success rate (SR) (% ↑)</caption>
+              <tbody>
+                <tr><th scope="row">AeroVLA</th><td class="bar-cell"><span class="bar" data-seen="32.54" data-unseen="27.67" style="--w:32.54%"></span></td><td class="num" data-seen="32.54" data-unseen="27.67">32.54</td></tr>
+                <tr><th scope="row">DualVLN</th><td class="bar-cell"><span class="bar" data-seen="38.88" data-unseen="36.67" style="--w:38.88%"></span></td><td class="num" data-seen="38.88" data-unseen="36.67">38.88</td></tr>
+                <tr><th scope="row">OpenUAV</th><td class="bar-cell"><span class="bar" data-seen="27.43" data-unseen="23.00" style="--w:27.43%"></span></td><td class="num" data-seen="27.43" data-unseen="23.00">27.43</td></tr>
+                <tr><th scope="row">OmniNav</th><td class="bar-cell"><span class="bar" data-seen="27.12" data-unseen="24.64" style="--w:27.12%"></span></td><td class="num" data-seen="27.12" data-unseen="24.64">27.12</td></tr>
+                <tr class="is-ours"><th scope="row">OpenFlyV2</th><td class="bar-cell"><span class="bar" data-seen="62.88" data-unseen="52.67" style="--w:62.88%"></span></td><td class="num" data-seen="62.88" data-unseen="52.67">62.88</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card metric">
+            <div class="card-head"><h4>Oracle success rate (OSR)</h4><p>% ↑</p></div>
+            <table class="bars compact">
+              <caption class="sr-only">Oracle success rate (OSR) (% ↑)</caption>
+              <tbody>
+                <tr><th scope="row">AeroVLA</th><td class="bar-cell"><span class="bar" data-seen="35.00" data-unseen="33.33" style="--w:35.00%"></span></td><td class="num" data-seen="35.00" data-unseen="33.33">35.00</td></tr>
+                <tr><th scope="row">DualVLN</th><td class="bar-cell"><span class="bar" data-seen="50.00" data-unseen="51.67" style="--w:50.00%"></span></td><td class="num" data-seen="50.00" data-unseen="51.67">50.00</td></tr>
+                <tr><th scope="row">OpenUAV</th><td class="bar-cell"><span class="bar" data-seen="28.00" data-unseen="26.00" style="--w:28.00%"></span></td><td class="num" data-seen="28.00" data-unseen="26.00">28.00</td></tr>
+                <tr><th scope="row">OmniNav</th><td class="bar-cell"><span class="bar" data-seen="48.38" data-unseen="50.72" style="--w:48.38%"></span></td><td class="num" data-seen="48.38" data-unseen="50.72">48.38</td></tr>
+                <tr class="is-ours"><th scope="row">OpenFlyV2</th><td class="bar-cell"><span class="bar" data-seen="71.88" data-unseen="64.67" style="--w:71.88%"></span></td><td class="num" data-seen="71.88" data-unseen="64.67">71.88</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card metric">
+            <div class="card-head"><h4>Success weighted by path length (SPL)</h4><p>% ↑</p></div>
+            <table class="bars compact">
+              <caption class="sr-only">Success weighted by path length (SPL) (% ↑)</caption>
+              <tbody>
+                <tr><th scope="row">AeroVLA</th><td class="bar-cell"><span class="bar" data-seen="28.61" data-unseen="26.85" style="--w:28.61%"></span></td><td class="num" data-seen="28.61" data-unseen="26.85">28.61</td></tr>
+                <tr><th scope="row">DualVLN</th><td class="bar-cell"><span class="bar" data-seen="37.25" data-unseen="35.63" style="--w:37.25%"></span></td><td class="num" data-seen="37.25" data-unseen="35.63">37.25</td></tr>
+                <tr><th scope="row">OpenUAV</th><td class="bar-cell"><span class="bar" data-seen="24.32" data-unseen="21.24" style="--w:24.32%"></span></td><td class="num" data-seen="24.32" data-unseen="21.24">24.32</td></tr>
+                <tr><th scope="row">OmniNav</th><td class="bar-cell"><span class="bar" data-seen="26.12" data-unseen="23.59" style="--w:26.12%"></span></td><td class="num" data-seen="26.12" data-unseen="23.59">26.12</td></tr>
+                <tr class="is-ours"><th scope="row">OpenFlyV2</th><td class="bar-cell"><span class="bar" data-seen="61.50" data-unseen="51.44" style="--w:61.50%"></span></td><td class="num" data-seen="61.50" data-unseen="51.44">61.50</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card metric">
+            <div class="card-head"><h4>Navigation error (NE)</h4><p>metres ↓</p></div>
+            <table class="bars compact">
+              <caption class="sr-only">Navigation error (NE) (metres ↓)</caption>
+              <tbody>
+                <tr><th scope="row">AeroVLA</th><td class="bar-cell"><span class="bar" data-seen="76.50" data-unseen="83.90" style="--w:76.50%"></span></td><td class="num" data-seen="76.50" data-unseen="83.90">76.50</td></tr>
+                <tr><th scope="row">DualVLN</th><td class="bar-cell"><span class="bar" data-seen="65.75" data-unseen="57.98" style="--w:65.75%"></span></td><td class="num" data-seen="65.75" data-unseen="57.98">65.75</td></tr>
+                <tr><th scope="row">OpenUAV</th><td class="bar-cell"><span class="bar" data-seen="85.60" data-unseen="98.50" style="--w:85.60%"></span></td><td class="num" data-seen="85.60" data-unseen="98.50">85.60</td></tr>
+                <tr><th scope="row">OmniNav</th><td class="bar-cell"><span class="bar" data-seen="88.38" data-unseen="93.56" style="--w:88.38%"></span></td><td class="num" data-seen="88.38" data-unseen="93.56">88.38</td></tr>
+                <tr class="is-ours"><th scope="row">OpenFlyV2</th><td class="bar-cell"><span class="bar" data-seen="33.72" data-unseen="38.81" style="--w:33.72%"></span></td><td class="num" data-seen="33.72" data-unseen="38.81">33.72</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3>Real-world flight</h3>
+        <ul class="facts">
+          <li><strong>48%</strong><span>success rate, zero-shot</span></li>
+          <li><strong>100</strong><span>trials: 50 single- and 50 two-landmark</span></li>
+          <li><strong>4</strong><span>sites, two of them unseen</span></li>
+          <li><strong>0</strong><span>real-world training flights</span></li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -207,6 +384,6 @@
   </div>
 </footer>
 
-<script src="assets/js/main.js?v=4"></script>
+<script src="assets/js/main.js?v=5"></script>
 </body>
 </html>
