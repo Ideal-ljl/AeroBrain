@@ -1,13 +1,13 @@
 # OpenFlyV2: An onboard vision-language-action model for aerial perception and navigation
 
-[![Project Page](https://img.shields.io/badge/Project-Page-black?logo=googlechrome&logoColor=white)](https://ideal-ljl.github.io/AeroBrain/)
-[![Dataset](https://img.shields.io/badge/🤗%20Hugging%20Face-Dataset-yellow)](https://huggingface.co/datasets/Ideallll/AeroBrain)
+<p align="center">
+  <a href="https://ideal-ljl.github.io/AeroBrain/"><img src="https://img.shields.io/badge/Project-Page-black?style=for-the-badge&amp;logo=googlechrome&amp;logoColor=white" alt="Project Page" height="28"></a>
+  <a href="https://huggingface.co/datasets/Ideallll/AeroBrain"><img src="https://img.shields.io/badge/🤗%20Hugging%20Face-Dataset-yellow?style=for-the-badge" alt="Hugging Face Dataset" height="28"></a>
+</p>
 
 OpenFlyV2 unifies aerial perception and navigation in a single onboard vision-language-action model, supporting semantic understanding, language-grounded perception, spatial reasoning, and continuous aerial control.
 
 ![OpenFlyV2 overview](assets/figure1.png)
-
-<p align="center"><a href="assets/figure1.pdf">View Figure 1 as PDF</a></p>
 
 ## Abstract
 
@@ -22,9 +22,7 @@ Human cognition flexibly draws on a shared perceptual foundation to understand e
 
 ## Dataset
 
-The **OpenFlyV2-130K** dataset is available on Hugging Face:
-
-**[🤗 Ideallll/AeroBrain](https://huggingface.co/datasets/Ideallll/AeroBrain)**
+The **OpenFlyV2-130K** dataset is available on Hugging Face: **[🤗 Ideallll/AeroBrain](https://huggingface.co/datasets/Ideallll/AeroBrain)**.
 
 > **Data availability:** The dataset described in the paper spans 13 environments. Two GS Ruins environments are currently excluded from the public release due to privacy concerns.
 
