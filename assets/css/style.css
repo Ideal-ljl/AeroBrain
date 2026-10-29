@@ -166,6 +166,8 @@ sup { font-size: .68em; line-height: 0; }
 }
 .legend-note { margin: 16px 0 0; color: var(--muted); font-size: 14px; }
 .legend-note .tag { margin-right: 6px; }
+.legend-note.center { margin: 30px 0 0; text-align: center; }
+.env-demo { margin-top: 8px; }
 .section-head .links { margin-top: 22px; }
 
 /* Environments */

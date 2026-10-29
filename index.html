@@ -10,7 +10,7 @@
   <meta property="og:image" content="assets/images/flight_0003_poster.jpg">
   <meta name="theme-color" content="#000000">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23000'/%3E%3Ccircle cx='16' cy='16' r='8' fill='none' stroke='%23fbbf24' stroke-width='3'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="assets/css/style.css?v=10">
+  <link rel="stylesheet" href="assets/css/style.css?v=11">
 </head>
 <body>
 
@@ -140,8 +140,18 @@
       <div class="section-head">
         <h2>13 simulation environments</h2>
         <p class="lede">Four AirSim maps, two Unreal Engine cities and seven 3D Gaussian Splatting reconstructions of real campuses and post-disaster ruins, covering 254.81&nbsp;km². The same scenes supply both the navigation and the question-answering data.</p>
-        <p class="legend-note"><span class="tag">Held out</span> Excluded from all training and used to test generalization to unseen environments.</p>
       </div>
+
+      <figure class="player env-demo">
+        <video src="assets/videos/openflyv2_env_demo.mp4" poster="assets/images/env_demo_poster.jpg"
+               controls muted loop playsinline preload="none" data-autoplay></video>
+        <figcaption>
+          <span class="chip"><i class="dot"></i>Fly-through</span>
+          Eleven of the environments, from AirSim and Unreal Engine cities to 3DGS campus reconstructions. The two GS Ruins scenes are not shown.
+        </figcaption>
+      </figure>
+
+      <p class="legend-note center"><span class="tag">Held out</span> Excluded from all training and used to test generalization to unseen environments.</p>
       <div class="env-group">
         <h3>AirSim <span>4 environments · Unreal Engine maps</span></h3>
         <ul class="env-grid">
@@ -426,6 +436,6 @@
   </div>
 </footer>
 
-<script src="assets/js/main.js?v=9"></script>
+<script src="assets/js/main.js?v=11"></script>
 </body>
 </html>

@@ -61,6 +61,16 @@ if (carousel) {
   sync();
 }
 
+// Standalone videos (the environment fly-through) play while on screen.
+if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.querySelectorAll('video[data-autoplay]').forEach(v => {
+    new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) v.play().catch(() => {});
+      else v.pause();
+    }, { threshold: 0.4 }).observe(v);
+  });
+}
+
 // Seen / unseen switch for the simulated navigation charts: bars and values animate to the other split.
 const seg = document.querySelector('.seg');
 if (seg) {
