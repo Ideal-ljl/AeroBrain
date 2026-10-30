@@ -2,5 +2,5 @@
 <rect x="1" y="1" width="238" height="70" rx="14" fill="#9f2936"/>
 <rect x="1.5" y="1.5" width="237" height="69" rx="13.5" fill="none" stroke="#ffffff" stroke-opacity=".16"/>
 <g transform="translate(15 18)" fill="none" stroke="#ffffff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h12l6 6v24H9z M21 3v7h6 M13 17h10 M13 22h10 M13 27h7"/></g>
-<g fill="#ffffff" font-family="Arial, Helvetica, sans-serif"><text x="65" y="31" font-size="18" font-weight="700">Read the Paper</text><text x="65" y="51" font-size="12" fill-opacity=".82">arXiv · 2610.39287</text></g>
+<g fill="#ffffff" font-family="Arial, Helvetica, sans-serif"><text x="65" y="42" font-size="18" font-weight="700">Read the Paper</text></g>
 </svg>

@@ -2,5 +2,5 @@
 <rect x="1" y="1" width="238" height="70" rx="14" fill="#2459a6"/>
 <rect x="1.5" y="1.5" width="237" height="69" rx="13.5" fill="none" stroke="#ffffff" stroke-opacity=".16"/>
 <g transform="translate(15 18)" fill="none" stroke="#ffffff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="14"/><ellipse cx="18" cy="18" rx="6" ry="14"/><path d="M4 18h28 M7 10h22 M7 26h22"/></g>
-<g fill="#ffffff" font-family="Arial, Helvetica, sans-serif"><text x="65" y="31" font-size="18" font-weight="700">Project Page</text><text x="65" y="51" font-size="12" fill-opacity=".82">Explore OpenFlyV2</text></g>
+<g fill="#ffffff" font-family="Arial, Helvetica, sans-serif"><text x="65" y="42" font-size="18" font-weight="700">Project Page</text></g>
 </svg>

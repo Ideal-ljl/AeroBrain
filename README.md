@@ -1,9 +1,9 @@
 # OpenFlyV2: An onboard vision-language-action model for aerial perception and navigation
 
 <p align="center">
-  <a href="https://arxiv.org/pdf/2610.39287"><img src="assets/buttons/paper.svg" alt="Read the Paper — arXiv 2610.39287" width="240" height="72"></a>&nbsp;
-  <a href="https://ideal-ljl.github.io/AeroBrain/"><img src="assets/buttons/project.svg" alt="Project Page — Explore OpenFlyV2" width="240" height="72"></a>&nbsp;
-  <a href="https://huggingface.co/datasets/Ideallll/AeroBrain"><img src="assets/buttons/dataset.svg" alt="Get the Dataset — Hugging Face" width="240" height="72"></a>
+  <a href="https://arxiv.org/pdf/2610.39287"><img src="assets/buttons/paper.svg" alt="Read the Paper" width="240" height="72"></a>&nbsp;
+  <a href="https://ideal-ljl.github.io/AeroBrain/"><img src="assets/buttons/project.svg" alt="Project Page" width="240" height="72"></a>&nbsp;
+  <a href="https://huggingface.co/datasets/Ideallll/AeroBrain"><img src="assets/buttons/dataset.svg" alt="Get the Dataset" width="240" height="72"></a>
 </p>
 
 OpenFlyV2 unifies aerial perception and navigation in a single onboard vision-language-action model, supporting semantic understanding, language-grounded perception, spatial reasoning, and continuous aerial control.
