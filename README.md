@@ -1,6 +1,7 @@
 # OpenFlyV2: An onboard vision-language-action model for aerial perception and navigation
 
 <p align="center">
+  <a href="https://arxiv.org/pdf/2610.39287"><img src="https://img.shields.io/badge/arXiv-2610.39287-b31b1b?style=for-the-badge" alt="arXiv Paper" height="28"></a>
   <a href="https://ideal-ljl.github.io/AeroBrain/"><img src="https://img.shields.io/badge/Project-Page-black?style=for-the-badge&amp;logo=googlechrome&amp;logoColor=white" alt="Project Page" height="28"></a>
   <a href="https://huggingface.co/datasets/Ideallll/AeroBrain"><img src="https://img.shields.io/badge/🤗%20Hugging%20Face-Dataset-yellow?style=for-the-badge" alt="Hugging Face Dataset" height="28"></a>
 </p>
