@@ -95,6 +95,30 @@ if (seg) {
   });
 }
 
+// Copy buttons (BibTeX): copy the target's text and confirm on the button for a moment.
+document.querySelectorAll('[data-copy]').forEach(btn => {
+  const label = btn.querySelector('span');
+  const idle = label.textContent;
+  let timer;
+  btn.addEventListener('click', async () => {
+    const text = document.querySelector(btn.dataset.copy).textContent;
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch {
+      // Clipboard API unavailable (e.g. insecure context): fall back to selecting the text.
+      const range = document.createRange();
+      range.selectNodeContents(document.querySelector(btn.dataset.copy));
+      getSelection().removeAllRanges();
+      getSelection().addRange(range);
+      document.execCommand('copy');
+    }
+    btn.classList.add('is-done');
+    label.textContent = 'Copied';
+    clearTimeout(timer);
+    timer = setTimeout(() => { btn.classList.remove('is-done'); label.textContent = idle; }, 1800);
+  });
+});
+
 // Dataset donuts: hovering, focusing or tapping a slice (or its legend entry) pops the slice out,
 // dims the rest and shows its share in the centre.
 document.querySelectorAll('.donut-card').forEach(card => {
