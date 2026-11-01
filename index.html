@@ -89,7 +89,7 @@
 
       <div class="carousel" role="region" aria-roledescription="carousel" aria-label="Real-world flights">
         <div class="track">
-          <figure class="player slide" role="group" aria-roledescription="slide" aria-label="Flight 1 of 2">
+          <figure class="player slide" role="group" aria-roledescription="slide" aria-label="Flight 1 of 4">
             <div class="frame">
               <video src="assets/videos/openflyv2_flight_0003.mp4" poster="assets/images/flight_0003_poster.jpg"
                      controls muted playsinline preload="metadata"></video>
@@ -105,16 +105,46 @@
             </figcaption>
           </figure>
 
-          <figure class="player slide" role="group" aria-roledescription="slide" aria-label="Flight 2 of 2">
+          <figure class="player slide" role="group" aria-roledescription="slide" aria-label="Flight 2 of 4">
             <div class="frame">
-              <video src="assets/videos/openflyv2_flight_0007.mp4" poster="assets/images/flight_0007_poster.jpg"
+              <video src="assets/videos/openflyv2_flight_0066.mp4" poster="assets/images/flight_0066_poster.jpg"
                      controls muted playsinline preload="none"></video>
               <p class="speed"><span><i class="dot"></i>Real time (1×)</span><span>Max speed 5&nbsp;m/s</span></p>
             </div>
             <div class="instr-text">
               <span>Instruction</span>
-              <p>Move forward toward the white angular building with a dark flat roof and tapered towers.</p>
-              <p>Then turn left and continue straight toward the large white curved building with raised rectangular sections beside the river.</p>
+              <p>Move forward toward the white angular building with a large dark flat roof and several tapered towers, accented by red trim and nestled among green trees beside the lake—it’s positioned at the center of your view.</p>
+            </div>
+            <figcaption>
+              Onboard camera. The on-screen text is the exact instruction given to the model.
+            </figcaption>
+          </figure>
+
+          <figure class="player slide" role="group" aria-roledescription="slide" aria-label="Flight 3 of 4">
+            <div class="frame">
+              <video src="assets/videos/openflyv2_flight_0083.mp4" poster="assets/images/flight_0083_poster.jpg"
+                     controls muted playsinline preload="none"></video>
+              <p class="speed"><span><i class="dot"></i>Real time (1×)</span><span>Max speed 5&nbsp;m/s</span></p>
+            </div>
+            <div class="instr-text">
+              <span>Instruction</span>
+              <p>Go straight ahead to the red building; there’s a huge clock on top of it.</p>
+            </div>
+            <figcaption>
+              Onboard camera. The on-screen text is the exact instruction given to the model.
+            </figcaption>
+          </figure>
+
+          <figure class="player slide" role="group" aria-roledescription="slide" aria-label="Flight 4 of 4">
+            <div class="frame">
+              <video src="assets/videos/openflyv2_flight_0100.mp4" poster="assets/images/flight_0100_poster.jpg"
+                     controls muted playsinline preload="none"></video>
+              <p class="speed"><span><i class="dot"></i>Real time (1×)</span><span>Max speed 5&nbsp;m/s</span></p>
+            </div>
+            <div class="instr-text">
+              <span>Instruction</span>
+              <p>Go straight until you reach a massive building dominated by the color red; it also features a white entrance and white windows.</p>
+              <p>Then slightly turn left to the building which is shape of letter H.</p>
             </div>
             <figcaption>
               Onboard camera. The on-screen text is the exact instruction given to the model.
@@ -127,8 +157,10 @@
           <div class="dots" role="group" aria-label="Choose a flight">
             <button type="button" aria-label="Flight 1"></button>
             <button type="button" aria-label="Flight 2"></button>
+            <button type="button" aria-label="Flight 3"></button>
+            <button type="button" aria-label="Flight 4"></button>
           </div>
-          <span class="count" aria-live="polite">1 / 2</span>
+          <span class="count" aria-live="polite">1 / 4</span>
           <button class="cbtn" type="button" data-dir="1" aria-label="Next flight"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg></button>
         </div>
       </div>
